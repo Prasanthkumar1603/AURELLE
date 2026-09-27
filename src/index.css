@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: auto; } /* Lenis handles smooth scroll */
+  body { @apply bg-ivory text-espresso font-sans antialiased; }
+  h1, h2, h3, h4 { @apply font-serif; }
+  :focus-visible { outline: 2px solid #C9A24B; outline-offset: 3px; }
+}
+
+@layer utilities {
+  .container-lux { @apply max-w-[1480px] mx-auto px-6 md:px-10 lg:px-16; }
+  .overline { @apply text-[11px] tracking-[0.3em] uppercase text-gold font-medium; }
+  .hairline { @apply border-t border-gold/30; }
+  .btn-pill { @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium transition-all duration-500 ease-silk; }
+  .btn-gold { @apply btn-pill bg-gold text-espresso hover:bg-[#b58e3e]; }
+  .btn-ghost { @apply btn-pill border border-ivory/70 text-ivory hover:bg-ivory hover:text-espresso; }
+  .btn-dark { @apply btn-pill bg-espresso text-ivory hover:bg-black; }
+  .btn-outline-dark { @apply btn-pill border border-espresso text-espresso hover:bg-espresso hover:text-ivory; }
+  .line-mask { @apply overflow-hidden block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #FAF7F2; }
+::-webkit-scrollbar-thumb { background: #C9A24B; border-radius: 8px; }
+
+.marquee-track { animation: marquee 40s linear infinite; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
